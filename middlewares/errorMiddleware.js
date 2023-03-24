@@ -3,7 +3,7 @@ const errorForDev = (error, res) => {
   res.status(error.statusCode).json({
     "Error": {
       "status": error.status,
-      "error": error + "",
+      "error": error ,
       "massage": error.massage,
       "stack": error.stack,
     },
@@ -14,7 +14,7 @@ const errorForProd = (error, res) => {
   res.status(error.statusCode).json({
     "Error": {
       "status": error.status,
-      "error": error + "",
+      "error": `${error  }`,
       "massage": error.massage,
     },
   });
@@ -23,7 +23,7 @@ module.exports.globalErrorMiddleware = (error, req, res, next) => {
   error.statusCode = error.statusCode || 500;
   error.status = error.status || "error";
 
-  if (process.env.node_ENV == "development") 
+  if (process.env.node_ENV === "development") 
   errorForDev(error, res);
   else errorForProd(error, res);
 };
