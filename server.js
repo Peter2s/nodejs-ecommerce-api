@@ -2,10 +2,11 @@ const express = require("express");
 require("dotenv").config();
 const morgan = require("morgan");
 
-
+const ApiError = require("./utils/ApiError");
+const {globalErrorMiddleware} = require("./middlewares/errorMiddleware");
 const categoryRoute = require("./routes/categoryRoute");
 
-const DBConnection = require("./config/dataBase");
+const DBConnection = require("./config/database");
 /* Data Base  */
 DBConnection();
 /* express App  */
@@ -22,19 +23,13 @@ app.use(morgan("dev"));
 /** Routes  */
 app.use(categoryRoute);
 
-// not found Middleware
-app.use((req, res, next) => {
-	const error = new Error();
-	error.message = `can't find this route ${req.originalUrl}`;
-	error.status = 404;
-	next(error);
+/** Route not  Middleware */
+app.all((req, res, next) => {
+	next(ApiError(`can't find this route ${req.originalUrl}`,404));
 });
 
 // error Middleware
-app.use((error, req, res, next) => {
-  let status = error.status || 500;
-  res.status(status).json({ Error: error + "" });
-});
+app.use(globalErrorMiddleware);
 
 
 
