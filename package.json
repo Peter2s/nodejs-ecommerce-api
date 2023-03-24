@@ -13,7 +13,8 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mongoose": "^7.0.2"
+    "mongoose": "^7.0.2",
+    "slugify": "^1.6.5"
   },
   "devDependencies": {
     "morgan": "^1.10.0",
