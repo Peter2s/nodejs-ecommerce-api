@@ -9,11 +9,13 @@ const ApiError = require("../utils/ApiError");
  * @access public
  *
  */
-module.exports.getAllSubCategories = asyncHandler(async (req, res, next) => {
+exports.getSubCategories = asyncHandler(async (req, res, next) => {
   const page = req.query.page * 1 || 1;
   const limit = req.query.limit * 1 || 5;
+  let filter = {};
+  if(req.params.categoryId) filter  =  {"category":req.params.categoryId} ;
   const skip = (page - 1) * limit;
-  const subCategories = await SubCategoryModel.find()
+  const subCategories = await SubCategoryModel.find(filter)
     .skip(skip)
     .limit(limit)
     .populate({ path: "category", select: "name" });
@@ -24,7 +26,7 @@ module.exports.getAllSubCategories = asyncHandler(async (req, res, next) => {
  * @route  GET /api/v1/categories/id
  * @access public
  */
-module.exports.getSubCategoryById = asyncHandler(async (req, res, next) => {
+exports.getSubCategoryById = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   const subCategory = await SubCategoryModel.findById(id)
   .populate({ path: "category", select: "name" });
@@ -33,13 +35,17 @@ module.exports.getSubCategoryById = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({ data: subCategory });
 });
-
+/* middle ware to inject category id to body if exits in url param */
+exports.setCategoryIdToBody = (req, res,next) => {
+  if(!req.body.category) req.body.category = req.params.categoryId;
+  next()
+}
 /*
  * @description create new sub category
  * @route POST /api/v1/categories
  * @access private
  */
-module.exports.createSubCategory = asyncHandler(async (req, res, next) => {
+exports.createSubCategory = asyncHandler(async (req, res, next) => {
   const { name, category } = req.body;
   const subCategory = await SubCategoryModel.create({
     name,

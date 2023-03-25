@@ -4,7 +4,6 @@ require("dotenv").config();
 // eslint-disable-next-line import/no-extraneous-dependencies, node/no-unpublished-require
 const morgan = require("morgan");
 
-const ApiError = require("./utils/ApiError");
 const {globalErrorMiddleware} = require("./middlewares/errorMiddleware");
 /** import routes */
 const categoryRoute = require("./routes/categoryRoute");
@@ -26,12 +25,12 @@ app.use(morgan("dev"));
 
 
 /** Routes  */
-app.use(categoryRoute);
-app.use(subCategoryRoute);
+app.use("/api/v1/categories",categoryRoute);
+app.use("/api/v1/subCategories",subCategoryRoute);
 
 /** Route not  Middleware */
-app.all((req, res, next) => {
-	next(ApiError(`can't find this route ${req.originalUrl}`,404));
+app.all("*",(req, res, next) => {
+	 res.status(404).json(`can't find this route ${req.originalUrl}`)
 });
 
 // error Middleware

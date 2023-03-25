@@ -1,7 +1,6 @@
 const express = require("express");
 
 const router = express.Router();
-
 const {
   getCategoryValidator,
   createCategoryValidator,
@@ -16,16 +15,19 @@ const {
   updateCategory,
   deleteCategory,
 } = require("../services/categoryService");
+const subCategoryRoute = require("./subCategoryRoute");
 
 router
-  .route("/api/v1/categories")
+  .route("/")
   .get(getAllCategories)
   .post(createCategoryValidator, createCategory);
 
 router
-  .route("/api/v1/categories/:id")
+  .route("/:id")
   .get(getCategoryValidator, getCategoryById)
   .patch(updateCategoryValidator, updateCategory)
   .delete(deleteCategoryValidator, deleteCategory);
+
+router.use("/:categoryId/subcategories", subCategoryRoute);
 
 module.exports = router;
