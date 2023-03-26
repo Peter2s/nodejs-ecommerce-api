@@ -8,6 +8,7 @@ const {globalErrorMiddleware} = require("./middlewares/errorMiddleware");
 /** import routes */
 const categoryRoute = require("./routes/categoryRoute");
 const subCategoryRoute = require("./routes/subCategoryRoute");
+const brandRoute = require("./routes/brandRoute");
 
 
 const DBConnection = require("./config/database");
@@ -27,6 +28,7 @@ app.use(morgan("dev"));
 /** Routes  */
 app.use("/api/v1/categories",categoryRoute);
 app.use("/api/v1/subCategories",subCategoryRoute);
+app.use("/api/v1/brands",brandRoute);
 
 /** Route not  Middleware */
 app.all("*",(req, res, next) => {
