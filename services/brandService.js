@@ -35,7 +35,7 @@ module.exports.getBrand = asyncHandler(async (req, res, next) => {
  * @access private
  *
  */
-module.exports.createCategory = asyncHandler(async (req, res, next) => {
+module.exports.createBrand = asyncHandler(async (req, res, next) => {
   const {name} = req.body;
   const brand = await BrandModel.create({ name, slug: slugify(name) });
   if (!brand) return next(new ApiError(` bas request`, 400));

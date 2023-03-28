@@ -9,6 +9,7 @@ const {globalErrorMiddleware} = require("./middlewares/errorMiddleware");
 const categoryRoute = require("./routes/categoryRoute");
 const subCategoryRoute = require("./routes/subCategoryRoute");
 const brandRoute = require("./routes/brandRoute");
+const productRoute = require("./routes/productRoute ");
 
 
 const DBConnection = require("./config/database");
@@ -24,11 +25,12 @@ app.use(express.urlencoded({ extended: false }));
 /*   logging */
 app.use(morgan("dev"));
 
-
+const baseURL = process.env.BASE_URL;
 /** Routes  */
-app.use("/api/v1/categories",categoryRoute);
-app.use("/api/v1/subCategories",subCategoryRoute);
-app.use("/api/v1/brands",brandRoute);
+app.use(`${baseURL}/categories`,categoryRoute);
+app.use(`${baseURL}/subCategories`, subCategoryRoute);
+app.use(`${baseURL}/brands`, brandRoute);
+app.use(`${baseURL}/products`, productRoute);
 
 /** Route not  Middleware */
 app.all("*",(req, res, next) => {
@@ -47,7 +49,7 @@ const server = app.listen(PORT, () => {
 
 /** handle unhandled  Rejection */
 process.on('unhandledRejection',(error)=>{
-	console.error(`unhandled Rejection Error : ${error}  ${error.massage}`);
+	console.error(`unhandled Rejection Error : ${error}  `);
 	server.close(()=>{
 		console.log("server shutting down ... ");
 		process.exit(1);

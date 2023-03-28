@@ -12,7 +12,10 @@ module.exports.getProducts = asyncHandler(async (req, res, next) => {
   const page = req.query.page * 1 || 1;
   const limit = req.query.limit * 1 || 5;
   const skip = (page - 1) * limit;
-  const products = await productModel.find().skip(skip).limit(limit);
+  const products = await productModel.find()
+    .skip(skip)
+    .limit(limit)
+    .populate({ path: "category", select: "name" });
   res.status(201).json({ page, limit, data: products });
 });
 /*
@@ -22,7 +25,10 @@ module.exports.getProducts = asyncHandler(async (req, res, next) => {
  */
 module.exports.getProduct = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
-  const product = await productModel.findById(id);
+  const product = await productModel
+    .findById(id)
+    .populate({ path: "category", select: "name" });
+
   if (!product) return next(new ApiError(` no product for this id ${id}`, 404));
 
   res.status(200).json({ data: product });
@@ -34,7 +40,7 @@ module.exports.getProduct = asyncHandler(async (req, res, next) => {
  *
  */
 module.exports.createProduct = asyncHandler(async (req, res, next) => {
-   req.body.slug = slugify(req.body.name);
+  req.body.slug = slugify(req.body.name);
   const product = await productModel.create(req.body);
   if (!product) return next(new ApiError(` bas request`, 400));
 
@@ -47,7 +53,8 @@ module.exports.createProduct = asyncHandler(async (req, res, next) => {
  */
 module.exports.updateProduct = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
-  req.body.slug = slugify(req.body.name);
+  if (req.body.name)
+    req.body.slug = slugify(req.body.name);
 
   const product = await productModel.findOneAndUpdate(
     { _id: id },

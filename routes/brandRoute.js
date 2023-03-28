@@ -6,7 +6,7 @@ const {
   createBrandValidator,
   updateBrandValidator,
   deleteBrandValidator,
-} = require("../validators/caregroyValidators");
+} = require("../validators/brandValidators");
 
 const {
   createBrand,
