@@ -18,7 +18,7 @@ module.exports.createProductValidator = [
     .withMessage("Product name required")
     .isLength({ min: 3 })
     .withMessage("Product name must be 3 or  more chartres ")
-    .isLength({ max: 32 })
+    .isLength({ max: 200 })
     .withMessage("product name must be less than 32  chartres"),
   check("description")
     .notEmpty()

@@ -9,13 +9,38 @@ const ApiError = require("../utils/ApiError");
  * @access public
  */
 module.exports.getProducts = asyncHandler(async (req, res, next) => {
+  /**  filtering  */
+  const notAllowedKeys = ['page', 'limit', 'sort'];
+  let queryString = { ...req.query }
+  notAllowedKeys.forEach((key) => {
+    delete queryString[key];
+  });
+  queryString = JSON.stringify(queryString).replace(/\b(gt|gte|lt|lte)\b/g, (match) => `$${match}`);
+  queryString = JSON.parse(queryString);
+
+  /** pagination  */
   const page = req.query.page * 1 || 1;
   const limit = req.query.limit * 1 || 5;
   const skip = (page - 1) * limit;
-  const products = await productModel.find()
+
+  let mongooseQuery = productModel
+    .find(queryString)
     .skip(skip)
     .limit(limit)
     .populate({ path: "category", select: "name" });
+  
+  /** sorting  */
+  if (req.query.sort) {
+
+    const  sortBy = req.query.sort.split(",").join(" ");
+    mongooseQuery = mongooseQuery.sort(sortBy);
+  }else   
+     mongooseQuery = mongooseQuery.sort('-createdAt');
+
+  
+  
+  /** execute query  */
+  const products = await mongooseQuery;
   res.status(201).json({ page, limit, data: products });
 });
 /*

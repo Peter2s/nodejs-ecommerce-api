@@ -20,6 +20,7 @@
     "slugify": "^1.6.5"
   },
   "devDependencies": {
+    "colors": "^1.4.0",
     "eslint": "^8.36.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.8.0",

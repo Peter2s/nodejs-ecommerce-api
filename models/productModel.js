@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema(
       trim: true,
       unique: [true, "Product name must be unique"],
       minLength: [3, "Product name must be 3 or  more chartres "],
-      maxLength: [32, "Product name must be less than 32  chartres "],
+      maxLength: [200, "Product name must be less than 32  chartres "],
     },
     description: {
       type: String,
@@ -40,7 +40,7 @@ const productSchema = new mongoose.Schema(
     },
     quantity: {
       type: Number,
-      min: [0, "sold must be positive number"],
+      min: [0, "quantity must be positive number"],
       default: 0,
     },
     color: [String],
