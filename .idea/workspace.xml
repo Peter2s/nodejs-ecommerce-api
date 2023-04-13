@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/routes/brandRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/brandRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add to request fields filter limit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/productService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/productService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,8 +66,23 @@
       <updated>1681329266976</updated>
       <workItem from="1681329268173" duration="3306000" />
       <workItem from="1681394337252" duration="765000" />
-      <workItem from="1681395109485" duration="3596000" />
+      <workItem from="1681395109485" duration="6208000" />
     </task>
+    <task id="LOCAL-00001" summary="add to request fields filter limit">
+      <created>1681398848000</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681398848000</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add to request fields filter limit">
+      <created>1681398870866</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681398870866</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,5 +113,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="add to request fields filter limit" />
+    <option name="LAST_COMMIT_MESSAGE" value="add to request fields filter limit" />
   </component>
 </project>

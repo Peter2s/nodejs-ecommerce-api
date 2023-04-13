@@ -10,7 +10,7 @@ const ApiError = require("../utils/ApiError");
  */
 module.exports.getProducts = asyncHandler(async (req, res, next) => {
   /**  filtering  */
-  const notAllowedKeys = ["page", "limit", "sort", "fields"];
+  const notAllowedKeys = ["page", "limit", "sort", "fields", "keyword"];
   let queryString = { ...req.query };
   notAllowedKeys.forEach((key) => {
     delete queryString[key];
@@ -44,6 +44,17 @@ module.exports.getProducts = asyncHandler(async (req, res, next) => {
     const sortBy = req.query.sort.split(",").join(" ");
     mongooseQuery = mongooseQuery.sort(sortBy);
   } else mongooseQuery = mongooseQuery.sort("-createdAt");
+
+  /* search  in name and description */
+  if (req.query.keyword) {
+    const query = {};
+    query.$or = [
+      { name: { $regex: req.query.keyword, $options: "i" } },
+      { description: { $regex: req.query.keyword, $options: "i" } },
+    ];
+    console.log(query);
+    mongooseQuery.find(query);
+  }
 
   /** execute query  */
   const products = await mongooseQuery;
