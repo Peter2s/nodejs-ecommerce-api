@@ -4,13 +4,12 @@ require("dotenv").config();
 // eslint-disable-next-line import/no-extraneous-dependencies, node/no-unpublished-require
 const morgan = require("morgan");
 
-const {globalErrorMiddleware} = require("./middlewares/errorMiddleware");
+const { globalErrorMiddleware } = require("./middlewares/errorMiddleware");
 /** import routes */
 const categoryRoute = require("./routes/categoryRoute");
 const subCategoryRoute = require("./routes/subCategoryRoute");
 const brandRoute = require("./routes/brandRoute");
 const productRoute = require("./routes/productRoute ");
-
 
 const DBConnection = require("./config/database");
 /* Data Base  */
@@ -27,32 +26,29 @@ app.use(morgan("dev"));
 
 const baseURL = process.env.BASE_URL;
 /** Routes  */
-app.use(`${baseURL}/categories`,categoryRoute);
+app.use(`${baseURL}/categories`, categoryRoute);
 app.use(`${baseURL}/subCategories`, subCategoryRoute);
 app.use(`${baseURL}/brands`, brandRoute);
 app.use(`${baseURL}/products`, productRoute);
 
 /** Route not  Middleware */
-app.all("*",(req, res, next) => {
-	 res.status(404).json(`can't find this route ${req.originalUrl}`)
+app.all("*", (req, res, next) => {
+  res.status(404).json(`can't find this route ${req.originalUrl}`);
 });
 
 // error Middleware
 app.use(globalErrorMiddleware);
 
-
-
 const PORT = process.env.PORT || 8000;
 const server = app.listen(PORT, () => {
-  console.log(`app listen to ${PORT}`);
+  console.log(`app listen to  ${PORT}`);
 });
 
 /** handle unhandled  Rejection */
-process.on('unhandledRejection',(error)=>{
-	console.error(`unhandled Rejection Error : ${error}  `);
-	server.close(()=>{
-		console.log("server shutting down ... ");
-		process.exit(1);
-	})
-
-})
+process.on("unhandledRejection", (error) => {
+  console.error(`unhandled Rejection Error : ${error}  `);
+  server.close(() => {
+    console.log("server shutting down ... ");
+    process.exit(1);
+  });
+});

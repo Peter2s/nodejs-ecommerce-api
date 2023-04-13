@@ -10,12 +10,15 @@ const ApiError = require("../utils/ApiError");
  */
 module.exports.getProducts = asyncHandler(async (req, res, next) => {
   /**  filtering  */
-  const notAllowedKeys = ['page', 'limit', 'sort'];
-  let queryString = { ...req.query }
+  const notAllowedKeys = ["page", "limit", "sort", "fields"];
+  let queryString = { ...req.query };
   notAllowedKeys.forEach((key) => {
     delete queryString[key];
   });
-  queryString = JSON.stringify(queryString).replace(/\b(gt|gte|lt|lte)\b/g, (match) => `$${match}`);
+  queryString = JSON.stringify(queryString).replace(
+    /\b(gt|gte|lt|lte)\b/g,
+    (match) => `$${match}`
+  );
   queryString = JSON.parse(queryString);
 
   /** pagination  */
@@ -28,21 +31,25 @@ module.exports.getProducts = asyncHandler(async (req, res, next) => {
     .skip(skip)
     .limit(limit)
     .populate({ path: "category", select: "name" });
-  
+
+  /** fields */
+  if (req.query.fields) {
+    const fields = req.query.fields.split(",").join(" ");
+    console.log(fields);
+    mongooseQuery = mongooseQuery.select(fields.toString());
+  } else mongooseQuery = mongooseQuery.select("-__v");
+
   /** sorting  */
   if (req.query.sort) {
-
-    const  sortBy = req.query.sort.split(",").join(" ");
+    const sortBy = req.query.sort.split(",").join(" ");
     mongooseQuery = mongooseQuery.sort(sortBy);
-  }else   
-     mongooseQuery = mongooseQuery.sort('-createdAt');
+  } else mongooseQuery = mongooseQuery.sort("-createdAt");
 
-  
-  
   /** execute query  */
   const products = await mongooseQuery;
   res.status(201).json({ page, limit, data: products });
 });
+
 /*
  * @description Get product By ID
  * @route  GET /api/v1/products/id
@@ -78,16 +85,12 @@ module.exports.createProduct = asyncHandler(async (req, res, next) => {
  */
 module.exports.updateProduct = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
-  if (req.body.name)
-    req.body.slug = slugify(req.body.name);
+  if (req.body.name) req.body.slug = slugify(req.body.name);
 
-  const product = await productModel.findOneAndUpdate(
-    { _id: id },
-    req.body,
-    { new: true }
-  );
-  if (!product)
-    return next(new ApiError(` no product for this id ${id}`, 404));
+  const product = await productModel.findOneAndUpdate({ _id: id }, req.body, {
+    new: true,
+  });
+  if (!product) return next(new ApiError(` no product for this id ${id}`, 404));
 
   res.status(200).json({ data: product });
 });
@@ -100,8 +103,7 @@ module.exports.updateProduct = asyncHandler(async (req, res, next) => {
 module.exports.deleteProduct = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   const product = await productModel.findByIdAndDelete(id);
-  if (!product)
-    return next(new ApiError(` no product for this id ${id}`, 404));
+  if (!product) return next(new ApiError(` no product for this id ${id}`, 404));
 
   res.status(204).json({});
 });
