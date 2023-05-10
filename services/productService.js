@@ -4,6 +4,7 @@ const productModel = require("../models/productModel");
 const ApiError = require("../utils/ApiError");
 const ApiFeatures = require("../utils/ApiFeatures");
 const factory = require("./handlerFactory");
+const CategoryModel = require("../models/categoryModel");
 
 /*
  * @description get List products
@@ -30,16 +31,7 @@ module.exports.getProducts = asyncHandler(async (req, res, next) => {
  * @route  GET /api/v1/products/id
  * @access public
  */
-module.exports.getProduct = asyncHandler(async (req, res, next) => {
-  const { id } = req.params;
-  const product = await productModel
-    .findById(id)
-    .populate({ path: "category", select: "name" });
-
-  if (!product) return next(new ApiError(` no product for this id ${id}`, 404));
-
-  res.status(200).json({ data: product });
-});
+module.exports.getProduct = factory.getOne(productModel);
 /*
  * @description create new product
  * @route POST /api/v1/products

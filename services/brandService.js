@@ -30,13 +30,7 @@ module.exports.getBrands = asyncHandler(async (req, res, next) => {
  * @route  GET /api/v1/brands/id
  * @access public
  */
-module.exports.getBrand = asyncHandler(async (req, res, next) => {
-  const { id } = req.params;
-  const brand = await BrandModel.findById(id);
-  if (!brand) return next(new ApiError(` no brand for this id ${id}`, 404));
-
-  res.status(200).json({ data: brand });
-});
+module.exports.getBrand = factory.getOne(BrandModel);
 /*
  * @description create new category
  * @route POST /api/v1/categories
