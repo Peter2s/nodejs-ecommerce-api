@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add  get all  factory to all endpoints">
+    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add mongoose query middleware to populate category in products">
+      <change afterPath="$PROJECT_DIR$/uploads/categories/category-1683748070586-80341296.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/categories/category-1683748741112-214500327.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/categories/category-1683748753832-857743471.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/productModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/productModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/subCategoryService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subCategoryService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/categoryRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/categoryRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/categoryService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/categoryService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683737514614</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add mongoose query middleware to populate category in products">
+      <created>1683739301346</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683739301346</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +201,7 @@
     <MESSAGE value="add update one factory to all models" />
     <MESSAGE value="add  get one factory to all endpoints" />
     <MESSAGE value="add  get all  factory to all endpoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="add  get all  factory to all endpoints" />
+    <MESSAGE value="add mongoose query middleware to populate category in products" />
+    <option name="LAST_COMMIT_MESSAGE" value="add mongoose query middleware to populate category in products" />
   </component>
 </project>

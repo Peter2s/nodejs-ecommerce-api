@@ -15,13 +15,19 @@ const {
   getCategoryById,
   updateCategory,
   deleteCategory,
+  uploadCategoryImage,
 } = require("../services/categoryService");
 const subCategoryRoute = require("./subCategoryRoute");
 
 router
   .route("/")
   .get(getAllCategories)
-  .post(createCategoryValidator, slugifyName, createCategory);
+  .post(
+    uploadCategoryImage,
+    createCategoryValidator,
+    slugifyName,
+    createCategory
+  );
 
 router
   .route("/:id")
