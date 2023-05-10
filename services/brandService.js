@@ -3,6 +3,7 @@ const slugify = require("slugify");
 const BrandModel = require("../models/brandModel ");
 const ApiError = require("../utils/ApiError");
 const ApiFeatures = require("../utils/ApiFeatures");
+const factory = require("./handlerFactory");
 
 /*
  * @description get List brands
@@ -72,10 +73,4 @@ module.exports.updateBrand = asyncHandler(async (req, res, next) => {
  *  @route DELETE /api/v1/brands/id
  *  @access private
  */
-module.exports.deleteBrand = asyncHandler(async (req, res, next) => {
-  const { id } = req.params;
-  const brand = await BrandModel.findByIdAndDelete(id);
-  if (!brand) return next(new ApiError(` no brand for this id ${id}`, 404));
-
-  res.status(204).json({});
-});
+module.exports.deleteBrand = factory.deleteOne(BrandModel);
