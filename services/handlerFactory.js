@@ -1,7 +1,5 @@
 const asyncHandler = require("express-async-handler");
 const ApiError = require("../utils/ApiError");
-const productModel = require("../models/productModel");
-const BrandModel = require("../models/brandModel ");
 /*
  create one handler for endpoint
   @param {Model} model
