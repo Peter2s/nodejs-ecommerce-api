@@ -1,6 +1,27 @@
 const asyncHandler = require("express-async-handler");
 const ApiError = require("../utils/ApiError");
 const BrandModel = require("../models/brandModel ");
+const ApiFeatures = require("../utils/ApiFeatures");
+
+module.exports.getAll = (Model) => {
+  return asyncHandler(async ({ query, params }, res, next) => {
+    //for => get sub categories by category id
+    let filter = {};
+    if (params.categoryId) filter = { category: params.categoryId };
+
+    /** BUILD query*/
+    const documentsCount = await Model.countDocuments();
+    const apiFeatures = new ApiFeatures(query, Model.find(filter));
+    apiFeatures.paginate(documentsCount).filter().sort().limitFields().search();
+
+    const { mongooseQuery, paginationResult } = apiFeatures;
+    /** execute query  */
+    const documents = await mongooseQuery;
+    res
+      .status(200)
+      .json({ result: documents.length, paginationResult, data: documents });
+  });
+};
 /*
  get one document handler for endpoint
   @param {Model} model
