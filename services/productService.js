@@ -17,7 +17,6 @@ module.exports.getProducts = asyncHandler(async (req, res, next) => {
   //.populate({ path: "category", select: "name" });
 
   const { mongooseQuery, paginationResult } = apiFeatures;
-  console.log(paginationResult);
   /** execute query  */
   const products = await mongooseQuery;
   res

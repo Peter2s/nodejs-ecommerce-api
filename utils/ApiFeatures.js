@@ -39,14 +39,17 @@ class ApiFeatures {
     return this;
   }
 
-  search() {
+  search(model) {
     if (this.query.keyword) {
-      const query = {};
-      query.$or = [
-        { name: { $regex: this.query.keyword, $options: "i" } },
-        { description: { $regex: this.query.keyword, $options: "i" } },
-      ];
-      console.log(query);
+      let query = {};
+      if (model === "products") {
+        query.$or = [
+          { name: { $regex: this.query.keyword, $options: "i" } },
+          { description: { $regex: this.query.keyword, $options: "i" } },
+        ];
+      } else {
+        query = { title: { $regex: this.query.keyword, $options: "i" } };
+      }
       this.mongooseQuery.find(query);
       return this;
     }
