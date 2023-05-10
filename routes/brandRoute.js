@@ -17,7 +17,10 @@ const {
   deleteBrand,
 } = require("../services/brandService");
 
-router.route("/").get(getBrands).post(createBrandValidator, createBrand);
+router
+  .route("/")
+  .get(getBrands)
+  .post(createBrandValidator, slugifyName, createBrand);
 
 router
   .route("/:id")

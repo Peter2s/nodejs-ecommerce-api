@@ -46,13 +46,7 @@ module.exports.getProduct = asyncHandler(async (req, res, next) => {
  * @access private
  *
  */
-module.exports.createProduct = asyncHandler(async (req, res, next) => {
-  req.body.slug = slugify(req.body.name);
-  const product = await productModel.create(req.body);
-  if (!product) return next(new ApiError(` bas request`, 400));
-
-  res.status(201).json({ data: product });
-});
+module.exports.createProduct = factory.createOne(productModel);
 /*
  *  @description update product
  *  @route PATCH /api/v1/products/id

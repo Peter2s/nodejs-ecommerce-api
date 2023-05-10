@@ -21,7 +21,7 @@ const subCategoryRoute = require("./subCategoryRoute");
 router
   .route("/")
   .get(getAllCategories)
-  .post(createCategoryValidator, createCategory);
+  .post(createCategoryValidator, slugifyName, createCategory);
 
 router
   .route("/:id")

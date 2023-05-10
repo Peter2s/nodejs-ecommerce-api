@@ -45,13 +45,7 @@ module.exports.getCategoryById = asyncHandler(async (req, res, next) => {
  * @access private
  *
  */
-module.exports.createCategory = asyncHandler(async (req, res, next) => {
-  const { name } = req.body;
-  const category = await CategoryModel.create({ name, slug: slugify(name) });
-  if (!category) return next(new ApiError(` bas request`, 400));
-
-  res.status(201).json({ data: category });
-});
+module.exports.createCategory = factory.createOne(CategoryModel);
 /*
  *  @description update category
  *  @route PATCH /api/v1/categories/id

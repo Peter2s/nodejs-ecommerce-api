@@ -43,13 +43,7 @@ module.exports.getBrand = asyncHandler(async (req, res, next) => {
  * @access private
  *
  */
-module.exports.createBrand = asyncHandler(async (req, res, next) => {
-  const { name } = req.body;
-  const brand = await BrandModel.create({ name, slug: slugify(name) });
-  if (!brand) return next(new ApiError(` bas request`, 400));
-
-  res.status(201).json({ data: brand });
-});
+module.exports.createBrand = factory.createOne(BrandModel);
 /*
  *  @description update brand
  *  @route PATCH /api/v1/brands/id

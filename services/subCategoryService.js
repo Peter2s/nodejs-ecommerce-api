@@ -63,17 +63,7 @@ exports.setCategoryIdToBody = (req, res, next) => {
  * @route POST /api/v1/categories
  * @access private
  */
-exports.createSubCategory = asyncHandler(async (req, res, next) => {
-  const { name, category } = req.body;
-  const subCategory = await SubCategoryModel.create({
-    name,
-    category,
-    slug: slugify(name),
-  });
-  if (!subCategory) return next(new ApiError(` bas request`, 400));
-
-  res.status(201).json({ data: subCategory });
-});
+exports.createSubCategory = factory.createOne(SubCategoryModel);
 /*
  *  @description update sub subCategory
  *  @route PATCH /api/v1/categories/id

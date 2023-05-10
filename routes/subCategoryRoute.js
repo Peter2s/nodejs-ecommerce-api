@@ -20,7 +20,12 @@ const {
 router
   .route("/")
   .get(getSubCategories)
-  .post(setCategoryIdToBody, createSubCategoryValidator, createSubCategory);
+  .post(
+    setCategoryIdToBody,
+    slugifyName,
+    createSubCategoryValidator,
+    createSubCategory
+  );
 
 router
   .route("/:id")

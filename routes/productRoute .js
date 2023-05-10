@@ -17,7 +17,10 @@ const {
   deleteProduct,
 } = require("../services/productService");
 
-router.route("/").get(getProducts).post(createProductValidator, createProduct);
+router
+  .route("/")
+  .get(getProducts)
+  .post(createProductValidator, slugifyName, createProduct);
 
 router
   .route("/:id")
