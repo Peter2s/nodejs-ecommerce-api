@@ -1,4 +1,5 @@
 const express = require("express");
+const slugifyName = require("../middlewares/slugifyMiddleWare");
 
 const router = express.Router();
 const {
@@ -16,16 +17,12 @@ const {
   deleteBrand,
 } = require("../services/brandService");
 
-router
-  .route("/")
-  .get(getBrands)
-  .post(createBrandValidator, createBrand);
+router.route("/").get(getBrands).post(createBrandValidator, createBrand);
 
 router
   .route("/:id")
   .get(getBrandValidator, getBrand)
-  .patch(updateBrandValidator, updateBrand)
+  .patch(updateBrandValidator, slugifyName, updateBrand)
   .delete(deleteBrandValidator, deleteBrand);
-
 
 module.exports = router;

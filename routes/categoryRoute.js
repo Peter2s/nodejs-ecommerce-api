@@ -1,4 +1,5 @@
 const express = require("express");
+const slugifyName = require("../middlewares/slugifyMiddleWare");
 
 const router = express.Router();
 const {
@@ -25,7 +26,7 @@ router
 router
   .route("/:id")
   .get(getCategoryValidator, getCategoryById)
-  .patch(updateCategoryValidator, updateCategory)
+  .patch(updateCategoryValidator, slugifyName, updateCategory)
   .delete(deleteCategoryValidator, deleteCategory);
 
 router.use("/:categoryId/subcategories", subCategoryRoute);

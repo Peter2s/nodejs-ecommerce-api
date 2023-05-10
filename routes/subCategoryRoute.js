@@ -1,6 +1,7 @@
 const express = require("express");
+const slugifyName = require("../middlewares/slugifyMiddleWare");
 
-const router = express.Router({mergeParams:true});
+const router = express.Router({ mergeParams: true });
 const {
   getSubCategories,
   getSubCategoryById,
@@ -19,12 +20,12 @@ const {
 router
   .route("/")
   .get(getSubCategories)
-  .post(setCategoryIdToBody,createSubCategoryValidator, createSubCategory);
+  .post(setCategoryIdToBody, createSubCategoryValidator, createSubCategory);
 
 router
   .route("/:id")
   .get(getSubCategoryValidator, getSubCategoryById)
-  .patch(updateSubCategoryValidator, updateSubCategory)
-  .delete(deleteSubCategoryValidator, deleteSubCategory)
+  .patch(updateSubCategoryValidator, slugifyName, updateSubCategory)
+  .delete(deleteSubCategoryValidator, deleteSubCategory);
 
 module.exports = router;

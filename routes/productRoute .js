@@ -1,4 +1,5 @@
 const express = require("express");
+const slugifyName = require("../middlewares/slugifyMiddleWare");
 
 const router = express.Router();
 const {
@@ -16,15 +17,12 @@ const {
   deleteProduct,
 } = require("../services/productService");
 
-router.route("/")
-  .get(getProducts)
-  .post(createProductValidator, createProduct);
+router.route("/").get(getProducts).post(createProductValidator, createProduct);
 
 router
   .route("/:id")
   .get(getProductValidator, getProduct)
-  .patch(updateProductValidator, updateProduct)
+  .patch(updateProductValidator, slugifyName, updateProduct)
   .delete(deleteProductValidator, deleteProduct);
-
 
 module.exports = router;

@@ -4,6 +4,7 @@ const BrandModel = require("../models/brandModel ");
 const ApiError = require("../utils/ApiError");
 const ApiFeatures = require("../utils/ApiFeatures");
 const factory = require("./handlerFactory");
+const productModel = require("../models/productModel");
 
 /*
  * @description get List brands
@@ -54,19 +55,7 @@ module.exports.createBrand = asyncHandler(async (req, res, next) => {
  *  @route PATCH /api/v1/brands/id
  *  @access private
  */
-module.exports.updateBrand = asyncHandler(async (req, res, next) => {
-  const { id } = req.params;
-  const { name } = req.body;
-
-  const brand = await BrandModel.findOneAndUpdate(
-    { _id: id },
-    { name, slug: slugify(name) },
-    { new: true }
-  );
-  if (!brand) return next(new ApiError(` no brand for this id ${id}`, 404));
-
-  res.status(200).json({ data: brand });
-});
+module.exports.updateBrand = factory.updateOne(BrandModel);
 
 /*
  *  @description Delete Brand
