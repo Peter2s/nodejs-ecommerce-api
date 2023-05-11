@@ -16,6 +16,7 @@ const {
   updateCategory,
   deleteCategory,
   uploadCategoryImage,
+  resizeImage,
 } = require("../services/categoryService");
 const subCategoryRoute = require("./subCategoryRoute");
 
@@ -24,6 +25,7 @@ router
   .get(getAllCategories)
   .post(
     uploadCategoryImage,
+    resizeImage,
     createCategoryValidator,
     slugifyName,
     createCategory

@@ -1,36 +1,25 @@
-const CategoryModel = require("../models/categoryModel");
 const factory = require("./handlerFactory");
-const multer = require("multer");
-const ApiError = require("../utils/ApiError");
+const AsyncHandler = require("express-async-handler");
+const sharp = require("sharp");
 
-//multer disk storage configuration
-const multerStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/categories");
-  },
-  filename: function (req, file, cb) {
-    const ext = file.mimetype.split("/")[1];
-    const fileName = `category-${Date.now()}-${Math.round(
-      Math.random() * 1e9
-    )}.${ext}`;
-    console.log(file);
-    cb(null, fileName);
-  },
+const { uploadSingleImage } = require("../middlewares/uploadSingleImage");
+const CategoryModel = require("../models/categoryModel");
+// upload category image
+module.exports.uploadCategoryImage = uploadSingleImage("image");
+// image processing middle to resize image size
+module.exports.resizeImage = AsyncHandler(async ({ body, file }, res, next) => {
+  const fileName = `category-${Date.now()}-${Math.round(
+    Math.random() * 1e9
+  )}.jpg`;
+  await sharp(file.buffer)
+    .resize(800, 800)
+    .toFormat("jpeg")
+    .jpeg({ quality: 80 })
+    .toFile(`uploads/categories/${fileName}`);
+  //save the image path into database
+  body.image = fileName;
+  next();
 });
-
-// multer file filter to allow images files only
-const multerFilesFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith("image")) cb(null, true);
-  else cb(new ApiError("images only allowed", 400), false);
-};
-
-const upload = multer({
-  storage: multerStorage,
-  fileFilter: multerFilesFilter,
-});
-
-// multer upload single image middleware
-module.exports.uploadCategoryImage = upload.single("image");
 
 /*
  * @description get List categories

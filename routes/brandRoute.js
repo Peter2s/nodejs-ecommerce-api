@@ -15,12 +15,20 @@ const {
   getBrand,
   updateBrand,
   deleteBrand,
+  uploadCBrandImage,
+  resizeImage,
 } = require("../services/brandService");
 
 router
   .route("/")
   .get(getBrands)
-  .post(createBrandValidator, slugifyName, createBrand);
+  .post(
+    uploadCBrandImage,
+    resizeImage,
+    createBrandValidator,
+    slugifyName,
+    createBrand
+  );
 
 router
   .route("/:id")
