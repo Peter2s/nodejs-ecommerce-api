@@ -15,17 +15,31 @@ const {
   getProduct,
   updateProduct,
   deleteProduct,
+  uploadProductImages,
+  resizeImages,
 } = require("../services/productService");
 
 router
   .route("/")
   .get(getProducts)
-  .post(createProductValidator, slugifyName, createProduct);
+  .post(
+    uploadProductImages,
+    resizeImages,
+    createProductValidator,
+    slugifyName,
+    createProduct
+  );
 
 router
   .route("/:id")
   .get(getProductValidator, getProduct)
-  .patch(updateProductValidator, slugifyName, updateProduct)
+  .patch(
+    uploadProductImages,
+    resizeImages,
+    updateProductValidator,
+    slugifyName,
+    updateProduct
+  )
   .delete(deleteProductValidator, deleteProduct);
 
 module.exports = router;

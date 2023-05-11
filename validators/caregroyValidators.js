@@ -17,5 +17,14 @@ module.exports.createCategoryValidator = [
   validatorMiddleware,
 ];
 
-module.exports.updateCategoryValidator = [idValidator, validatorMiddleware];
+module.exports.updateCategoryValidator = [
+  idValidator,
+  check("name")
+    .optional()
+    .isLength({ min: 3 })
+    .withMessage("Category name must be 3 or  more chartres ")
+    .isLength({ max: 32 })
+    .withMessage("Category name must be less than 32  chartres"),
+  validatorMiddleware,
+];
 module.exports.deleteCategoryValidator = [idValidator, validatorMiddleware];

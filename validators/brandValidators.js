@@ -17,5 +17,14 @@ module.exports.createBrandValidator = [
   validatorMiddleware,
 ];
 
-module.exports.updateBrandValidator = [idValidator, validatorMiddleware];
+module.exports.updateBrandValidator = [
+  idValidator,
+  check("name")
+    .optional()
+    .isLength({ min: 2 })
+    .withMessage("Brand name must be 3 or  more chartres ")
+    .isLength({ max: 32 })
+    .withMessage("Brand name must be less than 32  chartres"),
+  validatorMiddleware,
+];
 module.exports.deleteBrandValidator = [idValidator, validatorMiddleware];

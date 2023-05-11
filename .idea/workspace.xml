@@ -4,20 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add multer to upload image in category">
-      <change afterPath="$PROJECT_DIR$/middlewares/uploadSingleImage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/brands/brands-1683829769080-983674098.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/brands/brands-1683829774602-630178395.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/categories/category-1683753517196-565128413.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/categories/category-1683829501482-489612619.jpg" afterDir="false" />
+    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="refactor upload image and add upload image middleware to brands">
+      <change afterPath="$PROJECT_DIR$/uploads/categories/category-1683831110457-815262795.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/categories/category-1683831225285-610627093.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/categories/category-1683831339826-400939629.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/categories/category-1683831461819-974339490.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/categories/category-1683831537407-988919772.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/categories/category-1683832975806-23392973.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/products/product-1683837845073-779871349-cover.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/products/product-1683837880081-429689727-cover.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/products/product-1683837880153-208800843-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/products/product-1683837880153-218098635-1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/brandModel .js" beforeDir="false" afterPath="$PROJECT_DIR$/models/brandModel .js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/categoryModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/categoryModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/productModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/productModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/brandRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/brandRoute.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/categoryRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/categoryRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/brandService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/brandService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/categoryService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/categoryService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/productRoute .js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/productRoute .js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/productService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/productService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validators/brandValidators.js" beforeDir="false" afterPath="$PROJECT_DIR$/validators/brandValidators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validators/caregroyValidators.js" beforeDir="false" afterPath="$PROJECT_DIR$/validators/caregroyValidators.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +103,7 @@
       <workItem from="1681486102138" duration="598000" />
       <workItem from="1682094606349" duration="740000" />
       <workItem from="1683637299628" duration="2115000" />
-      <workItem from="1683820655354" duration="2982000" />
+      <workItem from="1683820655354" duration="10247000" />
     </task>
     <task id="LOCAL-00001" summary="add to request fields filter limit">
       <created>1681398848000</created>
@@ -175,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683749096625</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="refactor upload image and add upload image middleware to brands">
+      <created>1683829845222</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683829845222</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +230,7 @@
     <MESSAGE value="add  get all  factory to all endpoints" />
     <MESSAGE value="add mongoose query middleware to populate category in products" />
     <MESSAGE value="add multer to upload image in category" />
-    <option name="LAST_COMMIT_MESSAGE" value="add multer to upload image in category" />
+    <MESSAGE value="refactor upload image and add upload image middleware to brands" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor upload image and add upload image middleware to brands" />
   </component>
 </project>

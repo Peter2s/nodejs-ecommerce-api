@@ -33,7 +33,13 @@ router
 router
   .route("/:id")
   .get(getBrandValidator, getBrand)
-  .patch(updateBrandValidator, slugifyName, updateBrand)
+  .patch(
+    uploadCBrandImage,
+    resizeImage,
+    updateBrandValidator,
+    slugifyName,
+    updateBrand
+  )
   .delete(deleteBrandValidator, deleteBrand);
 
 module.exports = router;

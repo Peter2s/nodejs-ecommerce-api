@@ -34,7 +34,13 @@ router
 router
   .route("/:id")
   .get(getCategoryValidator, getCategoryById)
-  .patch(updateCategoryValidator, slugifyName, updateCategory)
+  .patch(
+    uploadCategoryImage,
+    resizeImage,
+    updateCategoryValidator,
+    slugifyName,
+    updateCategory
+  )
   .delete(deleteCategoryValidator, deleteCategory);
 
 router.use("/:categoryId/subcategories", subCategoryRoute);
