@@ -2,7 +2,7 @@ const factory = require("./handlerFactory");
 const AsyncHandler = require("express-async-handler");
 const sharp = require("sharp");
 
-const { uploadSingleImage } = require("../middlewares/uploadSingleImage");
+const { uploadSingleImage } = require("../middlewares/uploadImages");
 const CategoryModel = require("../models/categoryModel");
 // upload category image
 module.exports.uploadCategoryImage = uploadSingleImage("image");

@@ -31,3 +31,6 @@ const upload = multer({
 
 // multer upload single image middleware
 module.exports.uploadSingleImage = (filedName) => upload.single(filedName);
+// multer upload multi images middleware
+module.exports.uploadMultiImages = (ArrayOfFields) =>
+  upload.fields(ArrayOfFields);
