@@ -1,0 +1,76 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"1b03ab06-d44a-4e46-99b3-b339792fe508\" name=\"Changes\" comment=\"add update one factory to all models\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/middlewares/validatorMiddleware.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/middlewares/validatorMiddleware.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/routes/brandRoute.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/routes/brandRoute.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/routes/categoryRoute.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/routes/categoryRoute.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/routes/productRoute .js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/routes/productRoute .js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/routes/subCategoryRoute.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/routes/subCategoryRoute.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/services/brandService.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/services/brandService.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/services/categoryService.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/services/categoryService.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/services/handlerFactory.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/services/handlerFactory.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/services/productService.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/services/productService.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/services/subCategoryService.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/services/subCategoryService.js\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"JavaScript File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Merge.Settings\">\n    <option name=\"BRANCH\" value=\"master\" />\n  </component>\n  <component name=\"Git.Rebase.Settings\">\n    <option name=\"NEW_BASE\" value=\"master\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2OLA0ZcifYhAPpWVqHW6eqhvQzl\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\n    \"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"WebServerToolWindowFactoryState\": \"false\",\n    \"git-widget-placeholder\": \"master\",\n    \"javascript.nodejs.core.library.configured.version\": \"18.15.0\",\n    \"javascript.nodejs.core.library.typings.version\": \"18.15.0\",\n    \"last_opened_file_path\": \"/Users/petersalah/Desktop/nodejs-ecommerce-api\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"prettierjs.PrettierConfiguration.Package\": \"/Users/petersalah/Desktop/nodejs-ecommerce-api/node_modules/prettier\",\n    \"settings.editor.selected.configurable\": \"vcs.Git\",\n    \"ts.external.directory.path\": \"/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"SvnConfiguration\">\n    <configuration />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"1b03ab06-d44a-4e46-99b3-b339792fe508\" name=\"Changes\" comment=\"\" />\n      <created>1681329266976</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1681329266976</updated>\n      <workItem from=\"1681329268173\" duration=\"3306000\" />\n      <workItem from=\"1681394337252\" duration=\"765000\" />\n      <workItem from=\"1681395109485\" duration=\"10444000\" />\n      <workItem from=\"1681486102138\" duration=\"598000\" />\n      <workItem from=\"1682094606349\" duration=\"740000\" />\n      <workItem from=\"1683637299628\" duration=\"2115000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"add to request fields filter limit\">\n      <created>1681398848000</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1681398848000</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"add to request fields filter limit\">\n      <created>1681398870866</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1681398870866</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"add to product search by name description\">\n      <created>1681401462229</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1681401462229</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"add all Api Features to the rest of services\">\n      <created>1683721081972</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1683721081972</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"bug find in search api feature\">\n      <created>1683721384855</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1683721384855</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"add delete one factory\">\n      <created>1683722976707</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1683722976707</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"add update one factory to all models\">\n      <created>1683727038116</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1683727038116</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"8\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"origin/master\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n    <MESSAGE value=\"add to request fields filter limit\" />\n    <MESSAGE value=\"add to product search by name description\" />\n    <MESSAGE value=\"add all Api Features to the rest of services\" />\n    <MESSAGE value=\"bug find in search api feature\" />\n    <MESSAGE value=\"add delete one factory\" />\n    <MESSAGE value=\"add update one factory to all models\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"add update one factory to all models\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ca4bf6b9930e7f8c11ba23fd8e66f4fec87b8c12)
++++ b/.idea/workspace.xml	(date 1683732589442)
+@@ -4,18 +4,8 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add update one factory to all models">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/middlewares/validatorMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/validatorMiddleware.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/routes/brandRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/brandRoute.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/routes/categoryRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/categoryRoute.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/routes/productRoute .js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/productRoute .js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/routes/subCategoryRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/subCategoryRoute.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/services/brandService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/brandService.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/services/categoryService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/categoryService.js" afterDir="false" />
++    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add create one factory to all models">
+       <change beforePath="$PROJECT_DIR$/services/handlerFactory.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/handlerFactory.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/services/productService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/productService.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/services/subCategoryService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subCategoryService.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -44,6 +34,19 @@
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+     <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "lastFilter": {
++    "state": "OPEN"
++  }
++}]]></component>
++  <component name="GithubPullRequestsUISettings">
++    <option name="selectedUrlAndAccountId">
++      <UrlAndAccount>
++        <option name="accountId" value="ef68aa61-1dc2-4028-8b2c-008fa84a09e7" />
++        <option name="url" value="https://github.com/Peter2s/nodejs-ecommerce-api.git" />
++      </UrlAndAccount>
++    </option>
++  </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+   </component>
+@@ -144,7 +147,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1683727038116</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="add create one factory to all models">
++      <created>1683731493780</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1683731493780</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -181,6 +191,7 @@
+     <MESSAGE value="bug find in search api feature" />
+     <MESSAGE value="add delete one factory" />
+     <MESSAGE value="add update one factory to all models" />
+-    <option name="LAST_COMMIT_MESSAGE" value="add update one factory to all models" />
++    <MESSAGE value="add create one factory to all models" />
++    <option name="LAST_COMMIT_MESSAGE" value="add create one factory to all models" />
+   </component>
+ </project>
+\ No newline at end of file

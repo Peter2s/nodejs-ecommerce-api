@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="refactor upload images in products">
-      <change afterPath="$PROJECT_DIR$/models/userModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/userRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/authSerivce.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/userService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/validators/userValidators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/brandService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/brandService.js" afterDir="false" />
-    </list>
+    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add user module" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +88,7 @@
       <workItem from="1681486102138" duration="598000" />
       <workItem from="1682094606349" duration="740000" />
       <workItem from="1683637299628" duration="2115000" />
-      <workItem from="1683820655354" duration="15101000" />
+      <workItem from="1683820655354" duration="15648000" />
     </task>
     <task id="LOCAL-00001" summary="add to request fields filter limit">
       <created>1681398848000</created>
@@ -197,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683841081005</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add user module">
+      <created>1683844567251</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683844567251</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +239,7 @@
     <MESSAGE value="refactor upload image and add upload image middleware to brands" />
     <MESSAGE value="add upload multi image in products" />
     <MESSAGE value="refactor upload images in products" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor upload images in products" />
+    <MESSAGE value="add user module" />
+    <option name="LAST_COMMIT_MESSAGE" value="add user module" />
   </component>
 </project>

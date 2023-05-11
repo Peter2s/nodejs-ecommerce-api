@@ -1,0 +1,71 @@
+Index: services/productService.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const asyncHandler = require(\"express-async-handler\");\nconst slugify = require(\"slugify\");\nconst productModel = require(\"../models/productModel\");\nconst ApiError = require(\"../utils/ApiError\");\nconst ApiFeatures = require(\"../utils/ApiFeatures\");\n\n/*\n * @description get List products\n * @route GET /api/v1/products\n * @access public\n */\nmodule.exports.getProducts = asyncHandler(async (req, res, next) => {\n  /** BUILD query*/\n  const documentsCount = await productModel.countDocuments();\n  const apiFeatures = new ApiFeatures(req.query, productModel.find());\n  apiFeatures.paginate(documentsCount).filter().sort().limitFields().search();\n  //.populate({ path: \"category\", select: \"name\" });\n\n  const { mongooseQuery, paginationResult } = apiFeatures;\n  console.log(paginationResult);\n  /** execute query  */\n  const products = await mongooseQuery;\n  res\n    .status(200)\n    .json({ result: products.length, paginationResult, data: products });\n});\n\n/*\n * @description Get product By ID\n * @route  GET /api/v1/products/id\n * @access public\n */\nmodule.exports.getProduct = asyncHandler(async (req, res, next) => {\n  const { id } = req.params;\n  const product = await productModel\n    .findById(id)\n    .populate({ path: \"category\", select: \"name\" });\n\n  if (!product) return next(new ApiError(` no product for this id ${id}`, 404));\n\n  res.status(200).json({ data: product });\n});\n/*\n * @description create new product\n * @route POST /api/v1/products\n * @access private\n *\n */\nmodule.exports.createProduct = asyncHandler(async (req, res, next) => {\n  req.body.slug = slugify(req.body.name);\n  const product = await productModel.create(req.body);\n  if (!product) return next(new ApiError(` bas request`, 400));\n\n  res.status(201).json({ data: product });\n});\n/*\n *  @description update product\n *  @route PATCH /api/v1/products/id\n *  @access private\n */\nmodule.exports.updateProduct = asyncHandler(async (req, res, next) => {\n  const { id } = req.params;\n  if (req.body.name) req.body.slug = slugify(req.body.name);\n\n  const product = await productModel.findOneAndUpdate({ _id: id }, req.body, {\n    new: true,\n  });\n  if (!product) return next(new ApiError(` no product for this id ${id}`, 404));\n\n  res.status(200).json({ data: product });\n});\n\n/*\n *  @description Delete products\n *  @route DELETE /api/v1/products/id\n *  @access private\n */\nmodule.exports.deleteProduct = asyncHandler(async (req, res, next) => {\n  const { id } = req.params;\n  const product = await productModel.findByIdAndDelete(id);\n  if (!product) return next(new ApiError(` no product for this id ${id}`, 404));\n\n  res.status(204).json({});\n});\n
+===================================================================
+diff --git a/services/productService.js b/services/productService.js
+--- a/services/productService.js	
++++ b/services/productService.js	
+@@ -9,7 +9,7 @@
+  * @route GET /api/v1/products
+  * @access public
+  */
+-module.exports.getProducts = asyncHandler(async (req, res, next) => {
++module.exports.getProducts = asyncHandler(async (req, res) => {
+   /** BUILD query*/
+   const documentsCount = await productModel.countDocuments();
+   const apiFeatures = new ApiFeatures(req.query, productModel.find());
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"1b03ab06-d44a-4e46-99b3-b339792fe508\" name=\"Changes\" comment=\"add to product search by name description\">\n      <change afterPath=\"$PROJECT_DIR$/utils/ApiFeatures.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/services/productService.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/services/productService.js\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"JavaScript File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2OLA0ZcifYhAPpWVqHW6eqhvQzl\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\n    \"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"WebServerToolWindowFactoryState\": \"false\",\n    \"git-widget-placeholder\": \"master\",\n    \"javascript.nodejs.core.library.configured.version\": \"18.15.0\",\n    \"javascript.nodejs.core.library.typings.version\": \"18.15.0\",\n    \"last_opened_file_path\": \"/Users/petersalah/Desktop/nodejs-ecommerce-api\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"prettierjs.PrettierConfiguration.Package\": \"/Users/petersalah/Desktop/nodejs-ecommerce-api/node_modules/prettier\",\n    \"settings.editor.selected.configurable\": \"vcs.Git\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"SvnConfiguration\">\n    <configuration />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"1b03ab06-d44a-4e46-99b3-b339792fe508\" name=\"Changes\" comment=\"\" />\n      <created>1681329266976</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1681329266976</updated>\n      <workItem from=\"1681329268173\" duration=\"3306000\" />\n      <workItem from=\"1681394337252\" duration=\"765000\" />\n      <workItem from=\"1681395109485\" duration=\"10444000\" />\n      <workItem from=\"1681486102138\" duration=\"598000\" />\n      <workItem from=\"1682094606349\" duration=\"740000\" />\n      <workItem from=\"1683637299628\" duration=\"2115000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"add to request fields filter limit\">\n      <created>1681398848000</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1681398848000</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"add to request fields filter limit\">\n      <created>1681398870866</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1681398870866</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"add to product search by name description\">\n      <created>1681401462229</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1681401462229</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"4\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"origin/master\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n    <MESSAGE value=\"add to request fields filter limit\" />\n    <MESSAGE value=\"add to product search by name description\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"add to product search by name description\" />\n  </component>\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,9 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add to product search by name description">
+-      <change afterPath="$PROJECT_DIR$/utils/ApiFeatures.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add paginationResult">
+       <change beforePath="$PROJECT_DIR$/services/productService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/productService.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -77,7 +75,7 @@
+       <workItem from="1681395109485" duration="10444000" />
+       <workItem from="1681486102138" duration="598000" />
+       <workItem from="1682094606349" duration="740000" />
+-      <workItem from="1683637299628" duration="2115000" />
++      <workItem from="1683637299628" duration="2450000" />
+     </task>
+     <task id="LOCAL-00001" summary="add to request fields filter limit">
+       <created>1681398848000</created>
+@@ -100,7 +98,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1681401462229</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="add paginationResult">
++      <created>1683639714711</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1683639714711</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -133,6 +138,7 @@
+     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="add to request fields filter limit" />
+     <MESSAGE value="add to product search by name description" />
+-    <option name="LAST_COMMIT_MESSAGE" value="add to product search by name description" />
++    <MESSAGE value="add paginationResult" />
++    <option name="LAST_COMMIT_MESSAGE" value="add paginationResult" />
+   </component>
+ </project>
+\ No newline at end of file
