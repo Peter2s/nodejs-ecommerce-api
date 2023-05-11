@@ -36,8 +36,8 @@ module.exports.getBrands = factory.getAll(BrandModel);
  */
 module.exports.getBrand = factory.getOne(BrandModel);
 /*
- * @description create new category
- * @route POST /api/v1/categories
+ * @description create new brand
+ * @route POST /api/v1/brands
  * @access private
  *
  */
