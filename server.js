@@ -13,6 +13,7 @@ const subCategoryRoute = require("./routes/subCategoryRoute");
 const brandRoute = require("./routes/brandRoute");
 const productRoute = require("./routes/productRoute ");
 const UsertRoute = require("./routes/userRoute");
+const AuthRoute = require("./routes/authRoutes");
 
 const DBConnection = require("./config/database");
 /* Data Base  */
@@ -35,6 +36,7 @@ app.use(`${baseURL}/subCategories`, subCategoryRoute);
 app.use(`${baseURL}/brands`, brandRoute);
 app.use(`${baseURL}/products`, productRoute);
 app.use(`${baseURL}/users`, UsertRoute);
+app.use(`${baseURL}/auth`, AuthRoute);
 
 /** Route not  Middleware */
 app.all("*", (req, res, next) => {

@@ -7,6 +7,7 @@ const {
   createUserValidator,
   updateUserValidator,
   deleteUserValidator,
+  changePasswordValidator,
 } = require("../validators/userValidators");
 
 const {
@@ -14,6 +15,7 @@ const {
   getUsers,
   getUser,
   updateUser,
+  changePassword,
   deleteUser,
   uploadCUserImage,
   resizeImage,
@@ -29,6 +31,9 @@ router
     slugifyName,
     createUser
   );
+router
+  .route("/changePassword/:id")
+  .patch(changePasswordValidator, changePassword);
 
 router
   .route("/:id")

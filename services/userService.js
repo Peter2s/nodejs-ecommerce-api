@@ -1,7 +1,11 @@
 const AsyncHandler = require("express-async-handler");
 const sharp = require("sharp");
+const asyncHandler = require("express-async-handler");
+const bcrpet = require("bcrypt");
+
 const factory = require("./handlerFactory");
 const { uploadSingleImage } = require("../middlewares/uploadImages");
+const ApiError = require("../utils/ApiError");
 const UserModel = require("../models/userModel");
 
 // upload User image
@@ -44,7 +48,39 @@ module.exports.createUser = factory.createOne(UserModel);
  *  @route PATCH /api/v1/Users/id
  *  @access private
  */
-module.exports.updateUser = factory.updateOne(UserModel);
+module.exports.updateUser = asyncHandler(
+  async ({ body, params }, res, next) => {
+    const { id } = params;
+    const document = await UserModel.findByIdAndUpdate(
+      id,
+      {
+        name: body.name,
+        phone: body.phone,
+        profileImage: body.profileImage,
+      },
+      {
+        new: true,
+      }
+    );
+    if (!document) return next(new ApiError(` no user for this id ${id}`, 404));
+
+    res.status(200).json({ data: document });
+  }
+);
+/*
+ *  @description change password for  User
+ *  @route PATCH /api/v1/Users/changePassword/:id
+ *  @access private
+ */
+module.exports.changePassword = async (req, res, next) => {
+  const { id } = req.params;
+  const salt = 12;
+  const document = await UserModel.findByIdAndUpdate(id, {
+    password: await bcrpet.hash(req.body.password, salt),
+  });
+  if (!document) return next(new ApiError(` no user for this id ${id}`, 404));
+  res.status(204).json({ data: document });
+};
 
 /*
  *  @description Delete User

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const UserShcema = mongoose.Schema(
   {
@@ -14,6 +15,7 @@ const UserShcema = mongoose.Schema(
     },
     email: {
       type: "string",
+      immutable: true,
       unique: [true, "user email inuse before"],
       lowercase: true,
       required: [true, "user email is required"],
@@ -41,5 +43,12 @@ const UserShcema = mongoose.Schema(
   },
   { timestamps: true }
 );
+UserShcema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+  const salt = 12;
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
+});
+
 const UserModel = mongoose.model("User", UserShcema);
 module.exports = UserModel;
