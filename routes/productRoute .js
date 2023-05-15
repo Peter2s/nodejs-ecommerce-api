@@ -18,11 +18,14 @@ const {
   uploadProductImages,
   resizeImages,
 } = require("../services/productService");
+const { authenticate, authorizedTo } = require("../services/authSerivce");
 
 router
   .route("/")
   .get(getProducts)
   .post(
+    authenticate,
+    authorizedTo("admin", "manger"),
     uploadProductImages,
     resizeImages,
     createProductValidator,
@@ -34,12 +37,19 @@ router
   .route("/:id")
   .get(getProductValidator, getProduct)
   .patch(
+    authenticate,
+    authorizedTo("admin", "manger"),
     uploadProductImages,
     resizeImages,
     updateProductValidator,
     slugifyName,
     updateProduct
   )
-  .delete(deleteProductValidator, deleteProduct);
+  .delete(
+    authenticate,
+    authorizedTo("admin"),
+    deleteProductValidator,
+    deleteProduct
+  );
 
 module.exports = router;

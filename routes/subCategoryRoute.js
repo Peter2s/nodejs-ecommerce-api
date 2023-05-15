@@ -16,11 +16,14 @@ const {
   updateSubCategoryValidator,
   deleteSubCategoryValidator,
 } = require("../validators/subCategoryValidators");
+const { authenticate, authorizedTo } = require("../services/authSerivce");
 
 router
   .route("/")
   .get(getSubCategories)
   .post(
+    authenticate,
+    authorizedTo("admin", "manger"),
     setCategoryIdToBody,
     slugifyName,
     createSubCategoryValidator,
@@ -30,7 +33,18 @@ router
 router
   .route("/:id")
   .get(getSubCategoryValidator, getSubCategoryById)
-  .patch(updateSubCategoryValidator, slugifyName, updateSubCategory)
-  .delete(deleteSubCategoryValidator, deleteSubCategory);
+  .patch(
+    authenticate,
+    authorizedTo("admin", "manger"),
+    updateSubCategoryValidator,
+    slugifyName,
+    updateSubCategory
+  )
+  .delete(
+    authenticate,
+    authorizedTo("admin"),
+    deleteSubCategoryValidator,
+    deleteSubCategory
+  );
 
 module.exports = router;

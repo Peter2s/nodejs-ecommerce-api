@@ -55,7 +55,7 @@ module.exports.authenticate = asyncHandler(async (req, res, next) => {
 
   if (req.headers.authorization.startsWith("Bearer"))
     token = req.headers.authorization.split(" ")[1];
-  if (!token) next(new ApiError("unauthenticated", 403));
+  if (!token) next(new ApiError("unauthenticated", 401));
   //verify token
   const decode = await JWT.verify(token, process.env.JWT_SECRET_KEY);
   //check if user exists
@@ -81,3 +81,10 @@ module.exports.authenticate = asyncHandler(async (req, res, next) => {
   req.user = user;
   next();
 });
+
+module.exports.authorizedTo = (...roles) =>
+  asyncHandler((req, res, next) => {
+    if (!roles.includes(req.user.role))
+      next(new ApiError("not authorized"), 403);
+    next();
+  });

@@ -19,11 +19,14 @@ const {
   resizeImage,
 } = require("../services/categoryService");
 const subCategoryRoute = require("./subCategoryRoute");
+const { authenticate, authorizedTo } = require("../services/authSerivce");
 
 router
   .route("/")
   .get(getAllCategories)
   .post(
+    authenticate,
+    authorizedTo("admin", "manger"),
     uploadCategoryImage,
     resizeImage,
     createCategoryValidator,
@@ -35,13 +38,20 @@ router
   .route("/:id")
   .get(getCategoryValidator, getCategoryById)
   .patch(
+    authenticate,
+    authorizedTo("admin", "manger"),
     uploadCategoryImage,
     resizeImage,
     updateCategoryValidator,
     slugifyName,
     updateCategory
   )
-  .delete(deleteCategoryValidator, deleteCategory);
+  .delete(
+    authenticate,
+    authorizedTo("admin"),
+    deleteCategoryValidator,
+    deleteCategory
+  );
 
 router.use("/:categoryId/subcategories", subCategoryRoute);
 
