@@ -19,6 +19,8 @@ const {
   resizeImage,
 } = require("../services/brandService");
 
+const { authenticate } = require("../services/authSerivce");
+
 router
   .route("/")
   .get(getBrands)
@@ -32,7 +34,7 @@ router
 
 router
   .route("/:id")
-  .get(getBrandValidator, getBrand)
+  .get(authenticate, getBrandValidator, getBrand)
   .patch(
     uploadCBrandImage,
     resizeImage,

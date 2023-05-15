@@ -1,13 +1,8 @@
 const { check } = require("express-validator");
 const validatorMiddleware = require("../middlewares/validatorMiddleware");
 const UserModel = require("../models/userModel");
-const bcrypt = require("bcrypt");
 
-// const idValidator = [
-//   check("id").notEmpty().isMongoId().withMessage("id must be mongodb ID"),
-// ];
-
-module.exports.singupValidator = [
+module.exports.singUpValidator = [
   check("name")
     .notEmpty()
     .isLength({ min: 2 })
@@ -45,5 +40,21 @@ module.exports.singupValidator = [
     .isMobilePhone(["ar-EG", "ar-SA", "en-US"])
     .withMessage("invalid phone number format only accept [EG - SA - US]"),
 
+  validatorMiddleware,
+];
+
+module.exports.loginValidator = [
+  check("email")
+    .notEmpty()
+    .withMessage("user email required")
+    .isEmail()
+    .withMessage("invalid email format"),
+
+  check("password")
+    .isString()
+    .withMessage("password is required")
+    .trim()
+    .isLength({ min: 8 })
+    .withMessage("user password required and minimum length must be 8 "),
   validatorMiddleware,
 ];

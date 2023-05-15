@@ -24,6 +24,7 @@ const UserShcema = mongoose.Schema(
       type: "string",
       required: [true, "user password is required"],
     },
+    passwordChangedAt: Date,
     phone: {
       type: "string",
       unique: [true, "user phone inuse before"],

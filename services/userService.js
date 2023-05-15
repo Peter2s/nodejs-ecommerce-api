@@ -77,6 +77,8 @@ module.exports.changePassword = async (req, res, next) => {
   const salt = 12;
   const document = await UserModel.findByIdAndUpdate(id, {
     password: await bcrpet.hash(req.body.password, salt),
+    // eslint-disable-next-line new-cap
+    passwordChangedAt: Date.now(),
   });
   if (!document) return next(new ApiError(` no user for this id ${id}`, 404));
   res.status(204).json({ data: document });

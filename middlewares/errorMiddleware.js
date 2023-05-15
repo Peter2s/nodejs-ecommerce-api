@@ -1,3 +1,4 @@
+const ApiError = require("../utils/ApiError");
 const errorForDev = (error, res) => {
   console.log("error form dev");
   res.status(error.statusCode).json({
@@ -9,7 +10,15 @@ const errorForDev = (error, res) => {
     },
   });
 };
+const handleJWTExpiredError = () =>
+  new ApiError("token expired ,please login again ", 403);
+const handleJWTInvalidTokenError = () =>
+  new ApiError("invalid token, please login again ", 403);
 const errorForProd = (error, res) => {
+  /* handel JWT errors*/
+  if (error.name === "TokenExpiredError") error = handleJWTExpiredError();
+  if (error.name === "JsonWebTokenError") error = handleJWTInvalidTokenError();
+
   console.log("error form prod");
   res.status(error.statusCode).json({
     Error: {
