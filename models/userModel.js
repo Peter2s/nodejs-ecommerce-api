@@ -16,6 +16,7 @@ const UserShcema = mongoose.Schema(
     email: {
       type: "string",
       immutable: true,
+      index: true,
       unique: [true, "user email inuse before"],
       lowercase: true,
       required: [true, "user email is required"],
@@ -25,6 +26,10 @@ const UserShcema = mongoose.Schema(
       required: [true, "user password is required"],
     },
     passwordChangedAt: Date,
+    passwordRestCode: String,
+    passwordRestCodeExpiration: Date,
+    passwordRestCodeVerified: Boolean,
+
     phone: {
       type: "string",
       unique: [true, "user phone inuse before"],

@@ -20,14 +20,15 @@ const {
   uploadCUserImage,
   resizeImage,
 } = require("../services/userService");
+const getLoggedUser = require("../middlewares/getLoggedInUserData");
 const { authenticate, authorizedTo } = require("../services/authSerivce");
 
+router.get("/profile", authenticate, getLoggedUser, getUser);
+router.use(authenticate, authorizedTo("admin"));
 router
   .route("/")
-  .get(authenticate, authorizedTo("admin"), getUsers)
+  .get(getUsers)
   .post(
-    authenticate,
-    authorizedTo("admin"),
     uploadCUserImage,
     resizeImage,
     createUserValidator,
@@ -40,7 +41,7 @@ router
 
 router
   .route("/:id")
-  .get(authenticate, authorizedTo("admin"), getUserValidator, getUser)
+  .get(getUserValidator, getUser)
   .patch(
     uploadCUserImage,
     resizeImage,
@@ -48,6 +49,6 @@ router
     slugifyName,
     updateUser
   )
-  .delete(authenticate, authorizedTo("admin"), deleteUserValidator, deleteUser);
+  .delete(deleteUserValidator, deleteUser);
 
 module.exports = router;

@@ -58,3 +58,32 @@ module.exports.loginValidator = [
     .withMessage("user password required and minimum length must be 8 "),
   validatorMiddleware,
 ];
+module.exports.forgetPasswordValidator = [
+  check("email")
+    .notEmpty()
+    .withMessage("user email required")
+    .isEmail()
+    .withMessage("invalid email format"),
+  validatorMiddleware,
+];
+module.exports.resetPassowrdValidator = [
+  check("email")
+    .notEmpty()
+    .withMessage("user email required")
+    .isEmail()
+    .withMessage("invalid email format"),
+
+  check("newPassword")
+    .isString()
+    .withMessage("password is required")
+    .trim()
+    .isLength({ min: 8 })
+    .withMessage("user password required and minimum length must be 8 ")
+    .custom((newPassword, { req }) => {
+      if (newPassword !== req.body.passwordConfirmation)
+        throw new Error("password and password confirmation not match");
+      return true;
+    }),
+
+  validatorMiddleware,
+];

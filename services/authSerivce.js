@@ -8,7 +8,7 @@ require("dotenv").config();
 const userModel = require("../models/userModel");
 const ApiError = require("../utils/ApiError");
 
-const createToken = async (payload) =>
+module.exports.createToken = async (payload) =>
   await JWT.sign({ userId: payload }, process.env.JWT_SECRET_KEY, {
     expiresIn: process.env.JWT_EXPIR,
   });
@@ -26,7 +26,7 @@ module.exports.signup = asyncHandler(async ({ body }, res, next) => {
     password: body.password,
     phone: body.phone,
   });
-  const token = await createToken(user._id);
+  const token = await this.createToken(user._id);
   res.status(201).json({ data: user, token });
 });
 /*
@@ -46,7 +46,7 @@ module.exports.login = asyncHandler(async ({ body }, res, next) => {
   console.log("match", match);
   if (!match) next(new ApiError("email or password incorrect", 401));
 
-  const token = await createToken(user._id);
+  const token = await this.createToken(user._id);
   res.status(201).json({ data: user, token });
 });
 
