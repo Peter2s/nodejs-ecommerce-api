@@ -6,6 +6,7 @@ const bcrpet = require("bcrypt");
 const factory = require("./handlerFactory");
 const { uploadSingleImage } = require("../middlewares/uploadImages");
 const ApiError = require("../utils/ApiError");
+const { createToken } = require("../services/authSerivce");
 const UserModel = require("../models/userModel");
 
 // upload User image
@@ -72,7 +73,7 @@ module.exports.updateUser = asyncHandler(
  *  @route PATCH /api/v1/Users/changePassword/:id
  *  @access private
  */
-module.exports.changePassword = async (req, res, next) => {
+module.exports.changePassword = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   const salt = 12;
   const document = await UserModel.findByIdAndUpdate(id, {
@@ -82,7 +83,7 @@ module.exports.changePassword = async (req, res, next) => {
   });
   if (!document) return next(new ApiError(` no user for this id ${id}`, 404));
   res.status(204).json({ data: document });
-};
+});
 
 /*
  *  @description Delete User
@@ -90,3 +91,61 @@ module.exports.changePassword = async (req, res, next) => {
  *  @access private
  */
 module.exports.deleteUser = factory.deleteOne(UserModel);
+
+/*  ==== FOR Auth USer ===== */
+
+/*
+ *  @description change password for auth user
+ *  @route PATCH /api/v1/Users/changeMyPassword
+ *  @access private
+ */
+module.exports.updatePasswordForAuthUser = asyncHandler(
+  async (req, res, next) => {
+    const { id } = req.params;
+    const salt = 12;
+    const document = await UserModel.findByIdAndUpdate(id, {
+      password: await bcrpet.hash(req.body.password, salt),
+      // eslint-disable-next-line new-cap
+      passwordChangedAt: Date.now(),
+    });
+    if (!document) return next(new ApiError(` no user for this id ${id}`, 404));
+
+    const token = await createToken(document._id);
+
+    res.status(200).json({ data: document, token: token });
+  }
+);
+
+/*
+ *  @description user update his profile
+ *  @route PATCH /api/v1/Users/profile
+ *  @access private
+ */
+module.exports.updateProfile = asyncHandler(async (req, res, next) => {
+  const { id } = req.user;
+  const user = await UserModel.findByIdAndUpdate(
+    id,
+    {
+      name: req.body.name,
+      slug: req.body.slug,
+      phone: req.body.phone,
+    },
+    { new: true }
+  );
+
+  res.status(200).json({ data: user });
+});
+/*
+ *  @description user deactivate his Account
+ *  @route PATCH /api/v1/Users/deactivate
+ *  @access private
+ */
+
+module.exports.deactivateAccount = asyncHandler(async (req, res, next) => {
+  const { id } = req.user;
+  await UserModel.findByIdAndUpdate(id, {
+    active: false,
+  });
+
+  res.status(204).json({ status: "success" });
+});

@@ -63,6 +63,13 @@ module.exports.authenticate = asyncHandler(async (req, res, next) => {
   if (!user)
     next(new ApiError("the user belong to this user not longer exists"), 401);
 
+  if (!user.active)
+    next(
+      new ApiError(
+        "user inactive please active this user first and try again "
+      ),
+      403
+    );
   // check if user changed password after token created
   if (user.passwordChangedAt) {
     //convert password changed at to timestamp (seconds)
@@ -70,7 +77,7 @@ module.exports.authenticate = asyncHandler(async (req, res, next) => {
       user.passwordChangedAt.getTime() / 1000,
       10
     );
-    console.log(passwordChangedAtTimeStamp, decode);
+
     // user changed password after token created (Error)
     if (passwordChangedAtTimeStamp > decode.iat)
       next(

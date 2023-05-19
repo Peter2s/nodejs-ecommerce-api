@@ -8,6 +8,7 @@ const {
   updateUserValidator,
   deleteUserValidator,
   changePasswordValidator,
+  updateProfileValidator,
 } = require("../validators/userValidators");
 
 const {
@@ -16,6 +17,8 @@ const {
   getUser,
   updateUser,
   changePassword,
+  updatePasswordForAuthUser,
+  updateProfile,
   deleteUser,
   uploadCUserImage,
   resizeImage,
@@ -23,8 +26,21 @@ const {
 const getLoggedUser = require("../middlewares/getLoggedInUserData");
 const { authenticate, authorizedTo } = require("../services/authSerivce");
 
-router.get("/profile", authenticate, getLoggedUser, getUser);
-router.use(authenticate, authorizedTo("admin"));
+router.use(authenticate);
+/* ROUTES For Auth user*/
+
+router.get("/profile", getLoggedUser, getUser);
+router.patch(
+  "/profile",
+  updateProfileValidator,
+  getLoggedUser,
+  slugifyName,
+  updateProfile
+);
+router.patch("/changeMyPassword", getLoggedUser, updatePasswordForAuthUser);
+
+/* ROUTES For Admin */
+router.use(authorizedTo("admin"));
 router
   .route("/")
   .get(getUsers)

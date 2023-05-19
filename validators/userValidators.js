@@ -109,4 +109,21 @@ module.exports.changePasswordValidator = [
     }),
   validatorMiddleware,
 ];
+
+module.exports.updateProfileValidator = [
+  check("name")
+    .optional()
+    .isLength({ min: 2 })
+    .withMessage("User name must be 3 or  more chartres ")
+    .isLength({ max: 32 })
+    .withMessage("User name must be less than 32  chartres"),
+
+  check("phone")
+    .optional()
+    .isMobilePhone(["ar-EG", "ar-SA", "en-US"])
+    .withMessage("invalid phone number format only accept [EG - SA - US]"),
+
+  validatorMiddleware,
+];
+
 module.exports.deleteUserValidator = [idValidator, validatorMiddleware];
