@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="handle reset password and get user profile data">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_05_2023,_5_30_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_05_2023,_5_31_PM_[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add review model">
+      <change afterPath="$PROJECT_DIR$/routes/reviewRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/reviewService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validators/reviewValidators.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/userRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/userRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/authSerivce.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/authSerivce.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/userService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validators/userValidators.js" beforeDir="false" afterPath="$PROJECT_DIR$/validators/userValidators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +19,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -73,7 +72,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.15.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.15.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/petersalah/Desktop/nodejs-ecommerce-api&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/petersalah/Desktop/nodejs-ecommerce-api/models&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -87,6 +86,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/models" />
       <recent name="$PROJECT_DIR$/validators" />
       <recent name="$PROJECT_DIR$/routes" />
     </key>
@@ -116,7 +116,8 @@
       <workItem from="1684145705375" duration="14559000" />
       <workItem from="1684194790670" duration="3000" />
       <workItem from="1684222642550" duration="7465000" />
-      <workItem from="1684529351670" duration="5249000" />
+      <workItem from="1684529351670" duration="6097000" />
+      <workItem from="1684585667795" duration="2489000" />
     </task>
     <task id="LOCAL-00001" summary="add to request fields filter limit">
       <created>1681398848000</created>
@@ -258,7 +259,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684229109382</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add update profile and change password for auth user">
+      <created>1684535331112</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1684535331112</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add review model">
+      <created>1684535998496</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1684535998496</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,6 +323,8 @@
     <MESSAGE value="add authenticate middleware" />
     <MESSAGE value="add authorizedTo middleware" />
     <MESSAGE value="handle reset password and get user profile data" />
-    <option name="LAST_COMMIT_MESSAGE" value="handle reset password and get user profile data" />
+    <MESSAGE value="add update profile and change password for auth user" />
+    <MESSAGE value="add review model" />
+    <option name="LAST_COMMIT_MESSAGE" value="add review model" />
   </component>
 </project>
