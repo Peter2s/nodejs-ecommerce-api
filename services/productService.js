@@ -64,7 +64,7 @@ module.exports.getProducts = factory.getAll(productModel);
  * @route  GET /api/v1/products/id
  * @access public
  */
-module.exports.getProduct = factory.getOne(productModel);
+module.exports.getProduct = factory.getOne(productModel, "reviews");
 /*
  * @description create new product
  * @route POST /api/v1/products

@@ -10,6 +10,11 @@ exports.setCategoryIdToBody = ({ body, params }, res, next) => {
   next();
 };
 
+exports.createFilterObject = ({ body, params }, res, next) => {
+  if (params.categoryId) body.filterObject = { category: params.categoryId };
+  next();
+};
+
 /*
  * @description get List sub categories
  * @route GET /api/v1/categories

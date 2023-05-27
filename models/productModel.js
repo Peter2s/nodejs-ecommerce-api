@@ -50,22 +50,23 @@ const productSchema = new mongoose.Schema(
     },
     images: [String],
     category: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "category",
       required: [true, "category required"],
     },
     subCategories: {
-      type: [mongoose.Types.ObjectId],
+      type: [mongoose.Schema.Types.ObjectId],
       ref: "subCategory",
     },
     brand: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "brand",
     },
     ratingAverage: {
       type: Number,
-      min: [1, "rating must be between 1 - 5"],
-      max: [5, "rating must be between 1 - 5"],
+      min: [0, "rating must be between 0 - 5"],
+      max: [5, "rating must be between 0 - 5"],
+      default: 0,
     },
     ratingsQuantity: {
       type: Number,
@@ -73,8 +74,18 @@ const productSchema = new mongoose.Schema(
       default: 0,
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
 );
+//get all reviews in this product
+productSchema.virtual("reviews", {
+  ref: "Review",
+  foreignField: "product",
+  localField: "_id",
+});
 // mongoose query middleware
 productSchema.pre(/^find/, function (next) {
   this.populate({ path: "category", select: "name" });

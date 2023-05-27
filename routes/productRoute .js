@@ -19,7 +19,9 @@ const {
   resizeImages,
 } = require("../services/productService");
 const { authenticate, authorizedTo } = require("../services/authSerivce");
-
+const reviewsRoute = require("./reviewRoutes");
+// /products/:productId/reviews
+router.use("/:productId/reviews", reviewsRoute);
 router
   .route("/")
   .get(getProducts)

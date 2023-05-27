@@ -1,6 +1,6 @@
 const express = require("express");
 
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
 const {
   getReviewValidator,
@@ -15,6 +15,8 @@ const {
   getReview,
   updateReview,
   deleteReview,
+  createFilterObject,
+  setProductIdToBody,
 } = require("../services/reviewService");
 
 const { authenticate, authorizedTo } = require("../services/authSerivce");
@@ -26,12 +28,13 @@ router
     authenticate,
     authorizedTo("user"),
     createReviewValidator,
+    setProductIdToBody,
     createReview
   );
 
 router
   .route("/:id")
-  .get(getReviewValidator, getReview)
+  .get(getReviewValidator, createFilterObject, getReview)
   .patch(
     authenticate,
     authorizedTo("user"),

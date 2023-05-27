@@ -3,10 +3,10 @@ const ApiError = require("../utils/ApiError");
 const ApiFeatures = require("../utils/ApiFeatures");
 
 module.exports.getAll = (Model) =>
-  asyncHandler(async ({ query, params }, res, next) => {
+  asyncHandler(async ({ body, query }, res, next) => {
     //for => get sub categories by category id
     let filter = {};
-    if (params.categoryId) filter = { category: params.categoryId };
+    if (body.filterObject) filter = body.filterObject;
 
     /** BUILD query*/
     const documentsCount = await Model.countDocuments();
@@ -25,10 +25,12 @@ module.exports.getAll = (Model) =>
   @param {Model} model
   @return {response} response {document<model>}
 */
-module.exports.getOne = (Model) =>
+module.exports.getOne = (Model, populateOption) =>
   asyncHandler(async ({ params }, res, next) => {
     const { id } = params;
-    const document = await Model.findById(id);
+    let query = Model.findById(id);
+    if (populateOption) query = query.populate(populateOption);
+    const document = await query;
     if (!document)
       return next(new ApiError(` no brand for this id ${id}`, 404));
 

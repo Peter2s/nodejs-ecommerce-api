@@ -41,9 +41,7 @@ module.exports.login = asyncHandler(async ({ body }, res, next) => {
     email: body.email,
   });
   if (!user) next(new ApiError("email or password incorrect", 401));
-  console.log("user", user);
   const match = await bcrypt.compare(body.password, user.password);
-  console.log("match", match);
   if (!match) next(new ApiError("email or password incorrect", 401));
 
   const token = await this.createToken(user._id);
@@ -91,6 +89,7 @@ module.exports.authenticate = asyncHandler(async (req, res, next) => {
 
 module.exports.authorizedTo = (...roles) =>
   asyncHandler((req, res, next) => {
+    console.log(req.user.role);
     if (!roles.includes(req.user.role))
       next(new ApiError("not authorized"), 403);
     next();

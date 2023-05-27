@@ -8,6 +8,7 @@ const {
   createSubCategory,
   updateSubCategory,
   deleteSubCategory,
+  createFilterObject,
   setCategoryIdToBody,
 } = require("../services/subCategoryService");
 const {
@@ -32,7 +33,7 @@ router
 
 router
   .route("/:id")
-  .get(getSubCategoryValidator, getSubCategoryById)
+  .get(getSubCategoryValidator, createFilterObject, getSubCategoryById)
   .patch(
     authenticate,
     authorizedTo("admin", "manger"),

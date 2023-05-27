@@ -38,7 +38,7 @@ app.use(`${baseURL}/brands`, brandRoute);
 app.use(`${baseURL}/products`, productRoute);
 app.use(`${baseURL}/users`, UserRoute);
 app.use(`${baseURL}/auth`, AuthRoute);
-app.use(`${baseURL}/auth`, ReviewsRoute);
+app.use(`${baseURL}/reviews`, ReviewsRoute);
 
 /** Route not found  Middleware */
 app.all("*", (req, res, next) => {

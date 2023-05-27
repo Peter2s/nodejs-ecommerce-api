@@ -1,6 +1,18 @@
-const AsyncHandler = require("express-async-handler");
-
 const factory = require("./handlerFactory");
+
+exports.createFilterObject = ({ body, params }, res, next) => {
+  if (params.productId) body.filterObject = { product: params.productId };
+  next();
+};
+/*
+ * @route Post /api/v1/products/:id/reviews
+ * @description middle ware to inject product id to body if exits in url param
+ */
+exports.setProductIdToBody = ({ body, params }, res, next) => {
+  if (params.productId) body.filterObject = { product: params.productId };
+  next();
+};
+
 const ReviewModel = require("../models/reviewModel");
 
 /*
