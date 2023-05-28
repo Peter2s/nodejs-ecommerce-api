@@ -45,4 +45,11 @@ This is a Node.js API for an eCommerce platform that allows users to manage prod
    ``` 
  
 ## API Documentation   
+Here are some examples of the API endpoints:
+
+GET /api/v1/products - Get all products
+GET /api/v1/products/:id - Get a product by ID
+POST /api/v1/products - Create a new product
+PATCH /api/v1/products/:id - Update a product
+DELETE /api/v1/products/:id - Delete a product
   
