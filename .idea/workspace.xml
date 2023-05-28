@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add review calculate Average And Quantity Rating on create new review">
+    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="bug fixing in review">
+      <change afterPath="$PROJECT_DIR$/routes/wishlistRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/wishlisSerivce.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/reviewModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/reviewModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/handlerFactory.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/handlerFactory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/userModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +122,7 @@
       <workItem from="1684693116275" duration="2250000" />
       <workItem from="1684843109536" duration="4000" />
       <workItem from="1684843760897" duration="4356000" />
-      <workItem from="1685138771450" duration="11998000" />
+      <workItem from="1685138771450" duration="14868000" />
     </task>
     <task id="LOCAL-00001" summary="add to request fields filter limit">
       <created>1681398848000</created>
@@ -290,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685192110398</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="bug fixing in review">
+      <created>1685256511169</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1685256511169</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,6 +353,7 @@
     <MESSAGE value="add review model" />
     <MESSAGE value="add review service and routes" />
     <MESSAGE value="add review calculate Average And Quantity Rating on create new review" />
-    <option name="LAST_COMMIT_MESSAGE" value="add review calculate Average And Quantity Rating on create new review" />
+    <MESSAGE value="bug fixing in review" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixing in review" />
   </component>
 </project>
