@@ -22,6 +22,8 @@ This is a Node.js API for an eCommerce platform that allows users to manage prod
 - MongoDB 
 - JSON Web Tokens (JWT) for authentication
 - Mongoose 
+- Multer for file upload
+- Shrap for image processing
 - express validator 
 - bcrypt for password hashing
 - readis for caching
