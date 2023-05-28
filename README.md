@@ -41,7 +41,7 @@ This is a Node.js API for an eCommerce platform that allows users to manage prod
 
 
   ```bash
-   git clone [https://github.com/your-username/ecommerce-nodejs-api.git](https://github.com/Peter2s/nodejs-ecommerce-api)
+   git clone (https://github.com/Peter2s/nodejs-ecommerce-api)
    cd ecommerce-nodejs-api
    npm install
    npm start
