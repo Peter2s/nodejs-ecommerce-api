@@ -49,6 +49,11 @@ ReviewSchema.statics.calculateAverageAndQuantityRating = async function (
       ratingAverage: result[0].averageRating,
       ratingsQuantity: result[0].RatingsQuantity,
     });
+  } else {
+    await ProductModel.findByIdAndUpdate(productId, {
+      ratingAverage: 0,
+      ratingsQuantity: 0,
+    });
   }
   console.log("res", result);
 };
@@ -56,5 +61,8 @@ ReviewSchema.post("save", async function (next) {
   await this.constructor.calculateAverageAndQuantityRating(this.product);
 });
 
+ReviewSchema.post("remove", async function (next) {
+  await this.constructor.calculateAverageAndQuantityRating(this.product);
+});
 const ReviewModel = mongoose.model("Review", ReviewSchema);
 module.exports = ReviewModel;

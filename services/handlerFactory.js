@@ -64,6 +64,8 @@ module.exports.updateOne = (Model) =>
     });
     if (!document)
       return next(new ApiError(` no ${Model} for this id ${id}`, 404));
+    // tiger save event in mongoose to call handler
+    document.save();
 
     res.status(200).json({ data: document });
   });
@@ -79,5 +81,7 @@ module.exports.deleteOne = (Model) =>
     if (!document)
       return next(new ApiError(` no ${Model} for this id ${id}`, 404));
 
+    // tiger remove event in mongoose to call handler
+    document.remove();
     res.status(204).json({});
   });

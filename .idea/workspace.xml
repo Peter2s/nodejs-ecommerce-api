@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add review service and routes">
+    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add review calculate Average And Quantity Rating on create new review">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/productModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/productModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/reviewModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/reviewModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/productRoute .js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/productRoute .js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/reviewRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/reviewRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/subCategoryRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/subCategoryRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/authSerivce.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/authSerivce.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/handlerFactory.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/handlerFactory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/productService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/productService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/reviewService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/reviewService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/subCategoryService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subCategoryService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validators/reviewValidators.js" beforeDir="false" afterPath="$PROJECT_DIR$/validators/reviewValidators.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +120,7 @@
       <workItem from="1684693116275" duration="2250000" />
       <workItem from="1684843109536" duration="4000" />
       <workItem from="1684843760897" duration="4356000" />
-      <workItem from="1685138771450" duration="10389000" />
+      <workItem from="1685138771450" duration="11998000" />
     </task>
     <task id="LOCAL-00001" summary="add to request fields filter limit">
       <created>1681398848000</created>
@@ -293,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684588720288</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="add review calculate Average And Quantity Rating on create new review">
+      <created>1685192110398</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1685192110398</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,6 +343,7 @@
     <MESSAGE value="add update profile and change password for auth user" />
     <MESSAGE value="add review model" />
     <MESSAGE value="add review service and routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="add review service and routes" />
+    <MESSAGE value="add review calculate Average And Quantity Rating on create new review" />
+    <option name="LAST_COMMIT_MESSAGE" value="add review calculate Average And Quantity Rating on create new review" />
   </component>
 </project>
