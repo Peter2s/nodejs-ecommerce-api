@@ -48,8 +48,8 @@ const UserShcema = mongoose.Schema(
     },
     wishlist: [
       {
-        product: mongoose.Schema.Types.ObjectId,
-        ref: "Product",
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "product",
       },
     ],
     addresses: [

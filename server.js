@@ -1,5 +1,4 @@
 const path = require("path");
-
 const express = require("express");
 require("dotenv").config();
 
@@ -7,16 +6,8 @@ require("dotenv").config();
 const morgan = require("morgan");
 
 const { globalErrorMiddleware } = require("./middlewares/errorMiddleware");
-/** import routes */
-const categoryRoute = require("./routes/categoryRoute");
-const subCategoryRoute = require("./routes/subCategoryRoute");
-const brandRoute = require("./routes/brandRoute");
-const productRoute = require("./routes/productRoute ");
-const UserRoute = require("./routes/userRoute");
-const AuthRoute = require("./routes/authRoutes");
-const ReviewsRoute = require("./routes/reviewRoutes");
-const WishlistRoute = require("./routes/wishlistRoutes");
-const AddressesRoute = require("./routes/addressRoute");
+
+const mountRoutes = require("./routes");
 
 const DBConnection = require("./config/database");
 /* Data Base  */
@@ -32,17 +23,8 @@ app.use(express.static(path.join(__dirname, "uploads")));
 /*   logging */
 app.use(morgan("dev"));
 
-const baseURL = process.env.BASE_URL;
-/** Routes  */
-app.use(`${baseURL}/categories`, categoryRoute);
-app.use(`${baseURL}/subCategories`, subCategoryRoute);
-app.use(`${baseURL}/brands`, brandRoute);
-app.use(`${baseURL}/products`, productRoute);
-app.use(`${baseURL}/users`, UserRoute);
-app.use(`${baseURL}/auth`, AuthRoute);
-app.use(`${baseURL}/reviews`, ReviewsRoute);
-app.use(`${baseURL}/wishlist`, WishlistRoute);
-app.use(`${baseURL}/addresses`, AddressesRoute);
+/* routes */
+mountRoutes(app);
 
 /** Route not found  Middleware */
 app.all("*", (req, res, next) => {
