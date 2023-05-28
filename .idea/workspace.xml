@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="bug fixing in review">
-      <change afterPath="$PROJECT_DIR$/routes/wishlistRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/wishlisSerivce.js" afterDir="false" />
+    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add wishlist">
+      <change afterPath="$PROJECT_DIR$/routes/addressRoute.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/addressSerivce.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/userModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
@@ -122,7 +122,7 @@
       <workItem from="1684693116275" duration="2250000" />
       <workItem from="1684843109536" duration="4000" />
       <workItem from="1684843760897" duration="4356000" />
-      <workItem from="1685138771450" duration="14868000" />
+      <workItem from="1685138771450" duration="16778000" />
     </task>
     <task id="LOCAL-00001" summary="add to request fields filter limit">
       <created>1681398848000</created>
@@ -299,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685256511169</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="add wishlist">
+      <created>1685262174631</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1685262174631</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,6 +361,7 @@
     <MESSAGE value="add review service and routes" />
     <MESSAGE value="add review calculate Average And Quantity Rating on create new review" />
     <MESSAGE value="bug fixing in review" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixing in review" />
+    <MESSAGE value="add wishlist" />
+    <option name="LAST_COMMIT_MESSAGE" value="add wishlist" />
   </component>
 </project>

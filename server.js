@@ -16,6 +16,7 @@ const UserRoute = require("./routes/userRoute");
 const AuthRoute = require("./routes/authRoutes");
 const ReviewsRoute = require("./routes/reviewRoutes");
 const WishlistRoute = require("./routes/wishlistRoutes");
+const AddressesRoute = require("./routes/addressRoute");
 
 const DBConnection = require("./config/database");
 /* Data Base  */
@@ -41,6 +42,7 @@ app.use(`${baseURL}/users`, UserRoute);
 app.use(`${baseURL}/auth`, AuthRoute);
 app.use(`${baseURL}/reviews`, ReviewsRoute);
 app.use(`${baseURL}/wishlist`, WishlistRoute);
+app.use(`${baseURL}/addresses`, AddressesRoute);
 
 /** Route not found  Middleware */
 app.all("*", (req, res, next) => {

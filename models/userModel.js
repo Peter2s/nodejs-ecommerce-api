@@ -52,6 +52,15 @@ const UserShcema = mongoose.Schema(
         ref: "Product",
       },
     ],
+    addresses: [
+      {
+        id: mongoose.Schema.Types.ObjectId,
+        city: String,
+        postalCode: String,
+        alias: String,
+        details: String,
+      },
+    ],
   },
   { timestamps: true }
 );
