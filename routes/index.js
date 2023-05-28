@@ -11,6 +11,7 @@ const ReviewsRoute = require("./reviewRoutes");
 const WishlistRoute = require("./wishlistRoutes");
 const AddressesRoute = require("./addressRoute");
 const CouponRoute = require("./couponRoutes");
+const CartRoute = require("./cartRoutes");
 
 const mountRoutes = (app) => {
   const baseURL = process.env.BASE_URL;
@@ -25,5 +26,6 @@ const mountRoutes = (app) => {
   app.use(`${baseURL}/wishlist`, WishlistRoute);
   app.use(`${baseURL}/addresses`, AddressesRoute);
   app.use(`${baseURL}/coupons`, CouponRoute);
+  app.use(`${baseURL}/cart`, CartRoute);
 };
 module.exports = mountRoutes;
