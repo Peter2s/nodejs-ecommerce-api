@@ -27,6 +27,7 @@ This is a Node.js API for an eCommerce platform that allows users to manage prod
 - express validator 
 - bcrypt for password hashing
 - readis for caching
+-  node mailer for emails
 
 ## Getting Started
 
