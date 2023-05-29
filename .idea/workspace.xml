@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add coupon to products">
-      <change afterPath="$PROJECT_DIR$/models/cartModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/cartRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/cartSerivce.js" afterDir="false" />
+    <list default="true" id="1b03ab06-d44a-4e46-99b3-b339792fe508" name="Changes" comment="add prodcut to cart">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/cartRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/cartRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/cartSerivce.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/cartSerivce.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,28 +60,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "javascript.nodejs.core.library.configured.version": "18.15.0",
-    "javascript.nodejs.core.library.typings.version": "18.15.0",
-    "last_opened_file_path": "/Users/petersalah/Desktop/nodejs-ecommerce-api",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/petersalah/Desktop/nodejs-ecommerce-api/node_modules/prettier",
-    "settings.editor.selected.configurable": "com.obiscr.chatgpt.settings.GPT3-3.5-Turbo",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.15.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.15.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/petersalah/Desktop/nodejs-ecommerce-api&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/petersalah/Desktop/nodejs-ecommerce-api/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.obiscr.chatgpt.settings.GPT3-3.5-Turbo&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/models" />
@@ -123,7 +121,9 @@
       <workItem from="1684843109536" duration="4000" />
       <workItem from="1684843760897" duration="4356000" />
       <workItem from="1685138771450" duration="21994000" />
-      <workItem from="1685304472355" duration="4137000" />
+      <workItem from="1685304472355" duration="4772000" />
+      <workItem from="1685361109787" duration="2427000" />
+      <workItem from="1685386716430" duration="2773000" />
     </task>
     <task id="LOCAL-00001" summary="add to request fields filter limit">
       <created>1681398848000</created>
@@ -321,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685303074350</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="add prodcut to cart">
+      <created>1685310502093</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1685310502093</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +359,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add all Api Features to the rest of services" />
     <MESSAGE value="bug find in search api feature" />
     <MESSAGE value="add delete one factory" />
     <MESSAGE value="add update one factory to all models" />
@@ -377,6 +383,7 @@
     <MESSAGE value="add wishlist" />
     <MESSAGE value="add addresses service" />
     <MESSAGE value="add coupon to products" />
-    <option name="LAST_COMMIT_MESSAGE" value="add coupon to products" />
+    <MESSAGE value="add prodcut to cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="add prodcut to cart" />
   </component>
 </project>
